@@ -18,6 +18,7 @@ import {
     ikeaArrowClick,
     ikeaMediaCommands,
 } from '../lib/ikea';
+import tz from '../converters/toZigbee';
 
 const definitions: Definition[] = [
     // #region light
@@ -216,6 +217,8 @@ const definitions: Definition[] = [
         vendor: 'IKEA',
         description: 'TRADFRI bulb E27, white spectrum, globe, opal, 1055 lm',
         extend: [ikeaLight({colorTemp: true}), identify()],
+				toZigbee: [tz.ikea2201g8_light_onoff_brightness],
+				meta: {turnsOffAtBrightness1: true}
     },
     {
         zigbeeModel: ['TRADFRIbulbPAR38WS900lm'],
